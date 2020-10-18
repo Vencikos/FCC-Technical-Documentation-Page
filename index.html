@@ -4,13 +4,164 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Technical Documentation Page</title>
-        <meta name="description" content="">
+        <meta name="description" content="Technical documentation page about video formats">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>dsdasdsadasd</h1>
-        
-        
+
+    <!------------------------------ Nav bar --------------------------------->
+
+      <nav id="nav-bar">
+          <header>Media Queries</header>
+          <ul>
+              <li><a href="#introduction" class="nav-link">Introduction</a></li>
+              <li><a href="#media-query-basics" class="nav-link">Media Query Basics</a></li>
+              <li><a href="#more-complex-media-queries" class="nav-link">More complex media queries</a></li>
+              <li><a href="#how-to-choose-breakpoints" class="nav-link">How to choose breakpoints</a></li>
+              <li><a href="#mobile-first-responsive-design" class="nav-link">Mobile first responsive design</a></li>
+              <li><a href="#the-viewport-meta-tag" class="nav-link">The viewport meta tag</a></li>
+              <li><a href="#do-you-really-need-a-media-query" class="nav-link">Do you really need a media query?</a></li>
+              <li><a href="#test-your-skills" class="nav-link">Test your skills!</a></li>
+              <li><a href="#summary" class="nav-link">Summary</a></li>
+          </ul>
+      </nav>
+
+    <!------------------------------- Body ----------------------------------->
+
+      <main id="main-doc">
+
+    <!----------------------- Section Introduction --------------------------->
+
+          <section class="main-section" id="introduction">
+              <header>Introduction</header>
+              <article>
+                  <p>The CSS Media Query gives you a way to apply CSS only when the browser and device environment matches a rule that you specify, for example "viewport is wider than 480 pixels". Media queries are a key part of responsive web design, as they allow you to create different layouts depending on the size of the viewport, but they can also be used to detect other things about the environment your site is running on, for example whether the user is using a touchscreen rather than a mouse. In this lesson you will first learn about the syntax used in media queries, and then move on to use them in a worked example showing how a simple design might be made responsive.</p>
+              </article>
+          </section>
+    
+    <!-------------------- Section Media Query Basics ------------------------>
+
+          <section class="main-section" id="media-query-basics">
+            <header>Media Query Basics</header>
+            <article>
+                <p>The simplest media query syntax looks like this:
+                  <pre>
+                    <code>
+    @media <em>media-type</em> and (<em>media-feature-rule</em>) {
+        /* CSS rules go here */}
+                    </code>
+                  </pre>
+                </p>
+                <p>It consists of:</p>
+                <ul>
+                    <li>A media type, which tells the browser what kind of media this code is for (e.g. print, or screen).</li>
+                    <li>A media expression, which is a rule, or test that must be passed for the contained CSS to be applied.</li>
+                    <li>A set of CSS rules that will be applied if the test passes and the media type is correct.</li>
+                </ul> 
+
+                <h3>Media Types</h3>  
+                <p>The possible types of media you can specify are:</p>
+                <ul>
+                    <li><code>all</code></li>
+                    <li><code>print</code></li>
+                    <li><code>screen</code></li>
+                    <li><code>speech</code></li>
+                </ul>
+                <p>The following media query will only set the body to 12pt if the page is printed. It will not apply when the page is loaded in a browser.</p>
+                <pre>
+                    <code>
+    @media print {
+        body {
+            font-size: 12pt;
+        }
+    }
+                    </code>
+                </pre>
+
+                <h3>Media feature rules</h3>  
+                <p>After specifying the type, you can then target a media feature with a rule.</p>
+                <h4>Width and height</h4>
+                <p>The feature we tend to detect most often in order to create responsive designs (and that has widespread browser support) is viewport width, and we can apply CSS if the viewport is above or below a certain width — or an exact width — using the <code>min-width</code>, <code>max-width</code>, and <code>width</code> media features.These features are used to create layouts that respond to different screen sizes. For example, to change the body text color to red if the viewport is exactly 600 pixels, you would use the following media query.</p>
+                <pre>
+                    <code>
+    @media screen and (width: 600px) {
+        body {
+            color: red;
+        }
+    }
+                    </code>
+                </pre>
+                <p>The <code>width</code> (and <code>height</code>) media features can be used as ranges, and therefore be prefixed with <code>min-</code> or <code>max-</code> to indicate that the given value is a minimum, or a maximum. For example, to make the color blue if the viewport is narrower than 600 pixels, use max-width:</p>
+                <pre>
+                    <code>
+    @media screen and (max-width: 600px) {
+        body {
+            color: blue;
+        }
+    }
+                    </code>
+                </pre>
+                <p>There are a number of other media features that you can test for, although some of the newer features introduced in Level 4 and 5 of the media queries specification have limited browser support. Each feature is documented on MDN along with browser support information, and you can find a full list at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Media_features">Using Media Queries: Media Features.</a></p>
+                <h3>Orientation</h3>
+                <p>One well-supported media feature is <code>orientation</code>, which allows us to test for portrait or landscape mode. To change the body text color if the device is in landscape orientation, use the following media query.</p>
+            
+            </article>
+          </section>
+
+    <!-------------------- Section Media Query Basics ------------------------>
+
+          <section class="main-section" id="more_complex_media_queries">
+            <header>More complex media queries</header>
+            <article>
+                <p></p>
+            </article>
+          </section>
+
+          <section class="main-section" id="how_to_choose_breakpoints">
+            <header>How to choose breakpoints</header>
+            <article>
+                <p></p>
+            </article>
+        </section>
+
+        <section class="main-section" id="mobile_first_responsive_design">
+            <header>Mobile first responsive design</header>
+            <article>
+                <p></p>
+            </article>
+        </section>
+
+        <section class="main-section" id="the_viewport_meta_tag">
+            <header>The viewport meta tag</header>
+            <article>
+                <p></p>
+            </article>
+        </section>
+
+        <section class="main-section" id="do_you_really_need_a_media_query">
+            <header>Do you really need a media query?</header>
+            <article>
+                <p></p>
+            </article>
+        </section>
+
+        <section class="main-section" id="test_your_skills">
+            <header>Test your skills!</header>
+            <article>
+                <p></p>
+            </article>
+        </section>
+
+        <section class="main-section" id="summary">
+            <header>Summary</header>
+            <article>
+                <p></p>
+            </article>
+        </section>
+
+
+      </main>     
     </body>
 </html>
