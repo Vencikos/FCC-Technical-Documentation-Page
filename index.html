@@ -12,21 +12,25 @@
     <body>
 
     <!------------------------------ Nav bar --------------------------------->
-
-      <nav id="nav-bar">
-          <header>Media Queries</header>
-          <ul>
-              <li><a href="#introduction" class="nav-link">Introduction</a></li>
-              <li><a href="#media-query-basics" class="nav-link">Media Query Basics</a></li>
-              <li><a href="#more-complex-media-queries" class="nav-link">More complex media queries</a></li>
-              <li><a href="#how-to-choose-breakpoints" class="nav-link">How to choose breakpoints</a></li>
-              <li><a href="#mobile-first-responsive-design" class="nav-link">Mobile first responsive design</a></li>
-              <li><a href="#the-viewport-meta-tag" class="nav-link">The viewport meta tag</a></li>
-              <li><a href="#do-you-really-need-a-media-query" class="nav-link">Do you really need a media query?</a></li>
-              <li><a href="#test-your-skills" class="nav-link">Test your skills!</a></li>
-              <li><a href="#summary" class="nav-link">Summary</a></li>
-          </ul>
-      </nav>
+     <div class="nav">
+        <nav id="nav-bar">
+            <div class="nav-border">
+              <header>Media Queries</header>
+              <ul>
+                  <li><a href="#introduction" class="nav-link" >Introduction</a></li>
+                  <li><a href="#media-query-basics" class="nav-link">Media Query Basics</a></li>
+                  <li><a href="#more-complex-media-queries" class="nav-link">More complex media queries</a></li>
+                  <li><a href="#how-to-choose-breakpoints" class="nav-link">How to choose breakpoints</a></li>
+                  <li><a href="#mobile-first-responsive-design" class="nav-link">Mobile first responsive design</a></li>
+                  <li><a href="#the-viewport-meta-tag" class="nav-link">The viewport meta tag</a></li>
+                  <li><a href="#do-you-really-need-a-media-query" class="nav-link">Do you really need a media query?</a></li>
+                  <li><a href="#test-your-skills" class="nav-link">Test your skills!</a></li>
+                  <li><a href="#summary" class="nav-link">Summary</a></li>
+              </ul>
+            </div>
+        </nav>
+     </div>
+      
 
     <!------------------------------- Body ----------------------------------->
 
@@ -53,7 +57,6 @@
         /* CSS rules go here */}
                     </code>
                   </pre>
-                </p>
                 <p>It consists of:</p>
                 <ul>
                     <li>A media type, which tells the browser what kind of media this code is for (e.g. print, or screen).</li>
@@ -106,7 +109,15 @@
                 <p>There are a number of other media features that you can test for, although some of the newer features introduced in Level 4 and 5 of the media queries specification have limited browser support. Each feature is documented on MDN along with browser support information, and you can find a full list at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Media_features">Using Media Queries: Media Features.</a></p>
                 <h3>Orientation</h3>
                 <p>One well-supported media feature is <code>orientation</code>, which allows us to test for portrait or landscape mode. To change the body text color if the device is in landscape orientation, use the following media query.</p>
-            
+                <pre>
+                    <code>
+    @media (orientation: landscape) {
+        body {
+            color: rebeccapurple;
+          }
+        }
+                    </code>
+                </pre>
             </article>
           </section>
 

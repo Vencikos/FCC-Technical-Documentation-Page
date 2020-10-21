@@ -4,7 +4,7 @@ body {
 }
 
 main {
-    margin: 2rem 5rem 2rem 22rem;
+    margin: 1rem 5rem 2rem 22rem;
 }
 
 nav {
@@ -12,26 +12,29 @@ nav {
     margin: 1rem;
 }
 
+nav {
+    border-right: 2px solid black;
+    height: 1000vh;
+    padding-right: 1rem;
+}
+
 nav li {
     margin: 1rem auto;
 }
 
-nav li:hover::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: -0.8rem;
-    width: 0; 
-    height: 0; 
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid rgb(255, 0, 0);
+nav a:hover, 
+nav a:focus,
+nav a:active {
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    
 }
 
-
-
 nav a {
+    color: black;
     text-decoration: none;
+    padding: 0.5rem;
 }
 
 section a {
@@ -48,7 +51,6 @@ section ul {
 
 pre {
     height: 7rem;
-    width: 50rem;
     font-family: Consolas,"courier new";
     color: crimson;
     background-color: #EEEEEE;
@@ -67,9 +69,10 @@ header {
     font-size: 2rem;
     font-weight: 700;
     padding: 0.5rem 0;
-    margin: 2rem 0;
+    margin: 1rem 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;;
+    top: 0;
 }  
 
 h3 {
@@ -85,4 +88,26 @@ h4 {
     font-size: 1.3rem;
     font-weight: 700;
     margin: 2rem auto;
+}
+
+@media screen and (max-width: 950px) { 
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        margin: 35rem 1rem;
+    }
+
+    header {
+        color: black;
+    }
+
+    .nav {
+        position: fixed;
+        text-align: center;
+        margin: 2rem auto;
+    }    
+        
 }
