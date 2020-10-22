@@ -10,9 +10,6 @@ main {
 nav {
     position: fixed;
     margin: 1rem;
-}
-
-nav {
     border-right: 2px solid black;
     height: 1000vh;
     padding-right: 1rem;
@@ -22,6 +19,12 @@ nav li {
     margin: 1rem auto;
 }
 
+nav a {
+    color: black;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
 nav a:hover, 
 nav a:focus,
 nav a:active {
@@ -29,12 +32,6 @@ nav a:active {
     color: white;
     padding: 0.5rem;
     
-}
-
-nav a {
-    color: black;
-    text-decoration: none;
-    padding: 0.5rem;
 }
 
 section a {
@@ -50,7 +47,10 @@ section ul {
 }
 
 pre {
-    height: 7rem;
+    width: 45rem;
+    border-left: 5px solid red;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     font-family: Consolas,"courier new";
     color: crimson;
     background-color: #EEEEEE;
@@ -58,6 +58,7 @@ pre {
 
 code {
     background-color: #EEEEEE; 
+    line-height: 1.5rem;
 }
 
 p {
@@ -75,13 +76,17 @@ header {
     top: 0;
 }  
 
+section header {
+    margin: 3rem auto;
+}
+
 h3 {
     display: inline-block;
     font-size: 1.5rem;
     color: white;
     background-color: black;
     padding: 0.2rem 1rem;
-    margin: 3rem 0 0.5rem 0;
+    margin: 2rem 0 0.5rem 0;
 }
 
 h4 {
@@ -90,24 +95,10 @@ h4 {
     margin: 2rem auto;
 }
 
-@media screen and (max-width: 950px) { 
-    body {
-        display: flex;
-        flex-direction: column;
-    }
+img {
+    max-width: 70%;
+    margin: 1rem auto;
+}
 
-    main {
-        margin: 35rem 1rem;
-    }
-
-    header {
-        color: black;
-    }
-
-    .nav {
-        position: fixed;
-        text-align: center;
-        margin: 2rem auto;
-    }    
-        
+@media screen and (max-width: 950px) {          
 }
