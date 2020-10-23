@@ -13,10 +13,12 @@ main {
 
 nav {
     position: fixed;
-    margin: 1rem;
+    margin: 0 1rem 1rem 1rem;
     border-right: 2px solid black;
     height: 1000vh;
     padding-right: 1rem;
+    padding-top: 1rem;
+    list-style: none;
 }
 
 nav li {
@@ -108,5 +110,6 @@ img {
     margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 950px) {          
+@media screen and (max-width: 950px) {   
+           
 }
