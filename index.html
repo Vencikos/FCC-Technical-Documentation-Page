@@ -24,8 +24,6 @@
                   <li><a href="#mobile_first_responsive_design" class="nav-link">Mobile first responsive design</a></li>
                   <li><a href="#the_viewport_meta_tag" class="nav-link">The viewport meta tag</a></li>
                   <li><a href="#do_you_really_need_a_media_query" class="nav-link">Do you really need a media query?</a></li>
-                  <li><a href="#test_your_skills" class="nav-link">Test your skills!</a></li>
-                  <li><a href="#summary" class="nav-link">Summary</a></li>
               </ul>
             </div>
         </nav>
@@ -178,6 +176,8 @@
             </article>
           </section>
 
+    <!----------------- Section How to choose breakpoints -------------------->      
+
           <section class="main-section" id="how_to_choose_breakpoints">
             <header>How to choose breakpoints</header>
             <article>
@@ -291,45 +291,136 @@
           &lt;/aside&gt;
         &lt;/main&gt;
 
-        &lt;footer&gt;&lt;p&gt;&copy;2019&lt;/p&gt;&lt;/footer&gt;
+        &lt;footer&gt;&lt;p&gt;&copy;2020&lt;/p&gt;&lt;/footer&gt;
       &lt;/div&gt;
     &lt;/body&gt;
                   </code> 
                 </pre>
                 <p>This simple layout also works well on mobile. If we view the layout in Responsive Design Mode in DevTools we can see that it works pretty well as a straightforward mobile view of the site.</p>
-                
+                <p><a href="https://mdn.github.io/css-examples/learn/media-queries/step1.html">Open step 1</a> in the browser, or <a href="https://github.com/mdn/css-examples/blob/master/learn/media-queries/step1.html">view the source</a>.</p>
+                <p><strong>If you want to follow on and implement this example as we go, make a local copy of <a href="https://github.com/mdn/css-examples/blob/master/learn/media-queries/step1.html">step1.html</a> on your computer.</strong></p>
+                <p>From this point, start to drag the Responsive Design Mode view wider until you can see that the line lengths are becoming quite long, and we have space for the navigation to display in a horizontal line. This is where we'll add our first media query. We'll use ems, as this will mean that if the user has increased their text size, the breakpoint will happen at a similar line-length but wider viewport, than someone with a smaller text size.</p>
+                <p><strong>Add the below code into the bottom of your step1.html CSS.</strong></p>
+                <pre>
+                    <code>
+    @media screen and (min-width: 40em) {
+        article {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            column-gap: 20px;
+        }
+    
+        nav ul {
+            display: flex;
+        }
+    
+        nav li {
+            flex: 1;
+        }
+    }
+                    </code>
+                </pre>
+                <p>This CSS gives us a two-column layout inside the article, of the article content and related information in the aside element. We have also used flexbox to put the navigation into a row.</p>
+                <p><a href="https://mdn.github.io/css-examples/learn/media-queries/step2.html">Open step 2</a> in the browser, or <a href="https://github.com/mdn/css-examples/blob/master/learn/media-queries/step2.html">view the source.</a></p>
+                <p>Lets continue to expand the width until we feel there is enough room for the sidebar to also form a new column. Inside a media query we'll make the main element into a two column grid. We then need to remove the <code>margin-bottom</code> on the article in order that the two sidebars align with each other, and we'll add a <code>border</code> to the top of the footer. Typically these small tweaks are the kind of thing you will do to make the design look good at each breakpoint.</p>
+                <p><strong>Again, add the below code into the bottom of your step1.html CSS.</strong></p>
+                <pre>
+                    <code>
+    @media screen and (min-width: 70em) {
+        main {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            column-gap: 20px;
+        }
+    
+        article {
+            margin-bottom: 0;
+        }
+    
+        footer {
+            border-top: 1px solid #ccc;
+            margin-top: 2em;
+        }
+    }
+                    </code>
+                </pre>
+                <p><a href="https://mdn.github.io/css-examples/learn/media-queries/step3.html">Open step 3</a> in the browser, or <a href="https://github.com/mdn/css-examples/blob/master/learn/media-queries/step3.html">view the source</a>.</p>
+                <p>If you look at the final example at different widths you can see how the design responds and works as a single column, two columns, or three columns, depending on the available width. This is a very simple example of a mobile first responsive design.</p>
             </article>
         </section>
+    
+    <!------------------- Section The viewport meta tag ---------------------->
 
         <section class="main-section" id="the_viewport_meta_tag">
             <header>The viewport meta tag</header>
             <article>
-                <p></p>
+                <p>If you look at the HTML source in the above example, you'll see the following element included in the head of the document:</p>
+                <pre>
+                    <code>
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+                    </code>
+                </pre>
+                <p>This is the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">viewport meta tag</a> — it exists as a way control how mobile browsers render content. This is needed because by default, most mobile browsers lie about their viewport width. Non-responsive sites commonly look really bad when rendered in a narrow viewport, so mobile browsers usually render the site with a viewport width wider than the real device width by default (usually 960 pixels), and then shrink the rendered result so that it fits in the display.</p>
+                <p>This is all well and good, but it means that responsive sites are not going to work as expected. If the viewport width is reported as 960 pixels, then mobile layouts (for example created using a media query of <code>@media screen and (max-width: 600px) { ... })</code> are not going to render as expected.</p>
+                <p>To remedy this, including a viewport meta tag like the one above on your page tells the browser "don't render the content with a 960 pixel viewport — render it using the real device width instead, and set a default initial scale level for better consistency." The media queries will then kick in as expected.</p>
+                <p>There are a number of other options you can put inside the content attribute of the viewport meta tag — see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">Using the viewport meta tag to control layout on mobile browsers</a> for more details.</p>
             </article>
         </section>
+
+    <!------------- Section Do you really need a media query? ---------------->
 
         <section class="main-section" id="do_you_really_need_a_media_query">
             <header>Do you really need a media query?</header>
             <article>
-                <p></p>
+                <p>Flexbox, Grid, and multi-column layout all give you ways to create flexible and even responsive components without the need for a media query. It's always worth considering whether these layout methods can achieve what you want without adding media queries. For example, you might want a set of cards that are at least 200 pixels wide, with as many of these 200 pixels as will fit into the main article. This can be achieved with grid layout, using no media queries at all.</p>
+                <p>This could be achieved using the following:</p>
+                <pre>
+                    <code>
+    &lt;ul class="grid"&gt;
+      &lt;li&gt;
+        &lt;h2&gt;Card 1&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h2&gt;Card 2&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h2&gt;Card 3&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h2&gt;Card 4&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;h2&gt;Card 5&lt;/h2&gt;
+        &lt;p&gt;...&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+    .grid {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .grid li {
+        border: 1px solid #666;
+        padding: 10px;
+    }
+                    </code>
+                </pre>
+                <p><a href="https://mdn.github.io/css-examples/learn/media-queries/grid.html">Open the grid layout example</a> in the browser, or <a href="https://github.com/mdn/css-examples/blob/master/learn/media-queries/grid.html">view the source</a>.</p>
+                <p>With the example open in your browser, make the screen wider and narrower to see the number of column tracks change. The nice thing about this method is that grid is not looking at the viewport width, but the width it has available for this component. It might seem strange to wrap up a section about media queries with a suggestion that you might not need one at all! However, in practice you will find that good use of modern layout methods, enhanced with media queries, will give the best results.</p>
             </article>
         </section>
-
-        <section class="main-section" id="test_your_skills">
-            <header>Test your skills!</header>
-            <article>
-                <p></p>
-            </article>
-        </section>
-
-        <section class="main-section" id="summary">
-            <header>Summary</header>
-            <article>
-                <p></p>
-            </article>
-        </section>
-
-
       </main>     
     </body>
 </html>
