@@ -1,15 +1,21 @@
+html {
+    scroll-padding-top: 2rem;
+  }
+
 body {
     display: flex;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-strong{
-    font-weight:bold;
+strong {
+    font-weight: bold;
    }
 
 main {
-    margin: 1rem 5rem 2rem 22rem;
+    margin: 1rem 20rem 2rem 22rem;
 }
+
+/* Navigation */
 
 nav {
     position: fixed;
@@ -22,7 +28,7 @@ nav {
 }
 
 nav li {
-    margin: 1rem auto;
+    margin: 1.2rem auto;
 }
 
 nav a {
@@ -40,6 +46,8 @@ nav a:active {
     
 }
 
+/* Section */
+
 section a {
     color: #4F86C6;
 }
@@ -51,6 +59,12 @@ section li {
 section ul {
     list-style: initial;
 }
+
+section header {
+    margin: 3rem auto;
+}
+
+/* Code */
 
 pre {
     width: 45rem;
@@ -67,6 +81,8 @@ code {
     line-height: 1.5rem;
 }
 
+/* Text elements */
+
 p {
     margin: 1rem 0;
     line-height: 1.5rem;
@@ -81,10 +97,6 @@ header {
     border-bottom: 1px solid black;;
     top: 0;
 }  
-
-section header {
-    margin: 3rem auto;
-}
 
 h3 {
     display: inline-block;
@@ -110,6 +122,38 @@ img {
     margin-bottom: 1rem;
 }
 
+/* Smaller screens */
+
 @media screen and (max-width: 950px) {   
-           
+  nav {
+    border: none;
+    width: 100%;
+    height: 35%;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 2rem;
+    background-color: #FF9B42;
+    box-shadow: 0px 6px 20px -2px rgba(0,0,0,0.8);
+    list-style: none;
+  } 
+
+  html {
+    scroll-padding-top: 24rem;
+  }
+
+  main {
+      box-sizing: border-box;
+      max-width: 90vw;
+      margin: 20rem auto 2rem auto;
+  }
+
+  pre {
+      width: 90vw;
+      white-space: pre-wrap;
+      padding: 1rem;
+  }
+
+  #introduction header {
+      margin-top: 5rem;
+  }
 }
